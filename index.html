@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>goodai global — weekly sales</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a0a0a;
+    --ink-soft: #6e6e6e;
+    --paper: #ffffff;
+    --card: #ffffff;
+    --line: #e4e4e4;
+    --line-strong: #0a0a0a;
+    --hover: #f6f6f6;
+    --radius: 4px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 5vw, 2rem) 4rem;
+  }
+
+  /* Top bar */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1.25rem;
+    border-bottom: 2px solid var(--line-strong);
+    margin-bottom: clamp(2.5rem, 6vw, 3.5rem);
+  }
+  .logo {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    font-size: 1.05rem;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+  .internal-tag {
+    font-size: 0.66rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--paper);
+    background: var(--ink);
+    padding: 0.3rem 0.6rem;
+    border-radius: 2px;
+  }
+
+  /* Header */
+  header { margin-bottom: clamp(2.5rem, 6vw, 3.5rem); }
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  h1 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.4rem, 8vw, 3.8rem);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.9rem;
+  }
+  .lede {
+    font-size: 1.02rem;
+    color: var(--ink-soft);
+    max-width: 48ch;
+  }
+
+  /* Section label */
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-label::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* Report list */
+  .reports { list-style: none; display: flex; flex-direction: column; gap: 0; }
+  .report {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    border-bottom: 1px solid var(--line);
+    padding: 1.25rem 0.25rem;
+    text-decoration: none;
+    color: inherit;
+    transition: padding-left 0.18s ease, background 0.18s ease;
+  }
+  .report:first-child { border-top: 1px solid var(--line); }
+  .report:hover, .report:focus-visible {
+    background: var(--hover);
+    padding-left: 1rem;
+    outline: none;
+  }
+  .report:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  .marker {
+    flex: none;
+    width: 48px; height: 48px;
+    border-radius: 2px;
+    background: var(--ink);
+    color: var(--paper);
+    display: grid;
+    place-items: center;
+    font-family: 'Archivo', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .report-body { flex: 1; min-width: 0; }
+  .report-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .report-meta {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin-top: 0.15rem;
+  }
+  .badge {
+    flex: none;
+    font-size: 0.64rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--paper);
+    background: var(--ink);
+    border-radius: 2px;
+    padding: 0.3rem 0.6rem;
+  }
+  .chev { flex: none; color: var(--ink); transition: transform 0.18s ease; font-size: 1.1rem; }
+  .report:hover .chev { transform: translateX(4px); }
+
+  footer {
+    margin-top: clamp(3rem, 7vw, 4.5rem);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="logo">goodai global USA</div>
+      <div class="internal-tag">Internal</div>
+    </div>
+
+    <header>
+      <div class="eyebrow">Sales Reporting</div>
+      <h1>Weekly Sales</h1>
+      <p class="lede">Internal weekly sales reports across all brands. Select a week to view the full breakdown.</p>
+    </header>
+
+    <div class="section-label">Reports</div>
+
+    <ul class="reports">
+      <li>
+        <a class="report" href="./jun-wk2.html">
+          <span class="marker">W2</span>
+          <span class="report-body">
+            <span class="report-title">June — Week 2</span>
+            <span class="report-meta">All brands · weekly sales</span>
+          </span>
+          <span class="badge">Latest</span>
+          <span class="chev" aria-hidden="true">→</span>
+        </a>
+      </li>
+    </ul>
+
+    <footer>
+      goodai global USA · Internal use only
+    </footer>
+  </div>
+</body>
+</html>
